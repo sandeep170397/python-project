@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: todo-deployment
+
+  labels:
+
+    app: todo-list
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: todo-listapp
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: todo-listapp
+
+    spec:
+
+      containers:
+
+      - name: todo-app
+
+        image: sandy17/todo-app:latest
+
+        ports:
+
+        - containerPort: 8000
